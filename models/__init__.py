@@ -11,7 +11,7 @@ from sqlalchemy import create_engine, func
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 from sqlalchemy.orm import sessionmaker
 
-from core.config import settings
+from core.settings import settings
 
 # define session
 engine = create_engine(settings.SQLALCHEMY_DATABASE_URI, pool_pre_ping=True)

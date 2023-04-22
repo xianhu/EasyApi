@@ -5,15 +5,8 @@ user model
 """
 
 import sqlalchemy
-from passlib.context import CryptContext
 
 from models import BaseModel
-
-# define password context
-pwd_context = CryptContext(
-    schemes=["bcrypt"],
-    deprecated="auto",
-)
 
 
 class User(BaseModel):
@@ -36,17 +29,3 @@ class User(BaseModel):
     # others columns
     token_verify = sqlalchemy.Column(sqlalchemy.String(255), nullable=True)
     token_expire_at = sqlalchemy.Column(sqlalchemy.TIMESTAMP, nullable=True)
-
-
-def check_password_hash(pwd_plain, pwd_hash):
-    """
-    check password hash
-    """
-    return pwd_context.verify(pwd_plain, pwd_hash)
-
-
-def get_password_hash(pwd_plain):
-    """
-    get password hash
-    """
-    return pwd_context.hash(pwd_plain)

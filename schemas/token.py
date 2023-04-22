@@ -1,3 +1,9 @@
+# _*_ coding: utf-8 _*_
+
+"""
+schema of token
+"""
+
 from typing import Optional
 
 from pydantic import BaseModel
